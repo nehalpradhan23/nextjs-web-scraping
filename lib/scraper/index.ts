@@ -61,7 +61,7 @@ export async function scrapeAmazonProduct(url: string) {
 
     const description = extractDescription($);
 
-    const availability = $("#availability").text().replace(/ /g, "");
+    // const availability = $("#availability").text().replace(/ /g, "");
 
     // // Construct data object with scraped information
     const data = {
@@ -74,9 +74,9 @@ export async function scrapeAmazonProduct(url: string) {
       priceHistory: [],
       discountRate: Number(discountRate),
       category: "category",
-      // reviewsCount: 100,
-      // stars: 4.5,
-      isOutOfStock: availability,
+      reviewsCount: 100,
+      stars: 4.5,
+      isOutOfStock: outOfStock,
       description,
       lowestPrice: Number(currentPrice) || Number(originalPrice),
       highestPrice: Number(originalPrice) || Number(currentPrice),
